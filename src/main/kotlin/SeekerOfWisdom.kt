@@ -1,23 +1,26 @@
-import io.reactivex.Completable
+import io.reactivex.Single
 import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 
 object SeekerOfWisdom {
     fun run() {
-        for (i in 0 until 5) {
-            Oracle("$i").apply {
-                question()
-                        .observeOn(Schedulers.computation())
-                        .subscribeBy(
-                                onSuccess = { println(" Oracle $name says $it") }
-                        )
-            }
-
+        val questions = (0 until 5).map {
+            Oracle("$it").question()
+                    .doOnSuccess { answer ->
+                        println(" Oracle $it says $answer")
+                    }
         }
 
-        Completable.complete()
-                .delay(10, TimeUnit.SECONDS)
-                .subscribe(Runner::terminate)
+        var consensus = 0
+
+        Single.concat(questions)
+                .subscribeBy(
+                        onNext = { answer ->
+                            consensus += (if (answer) 1 else -1)
+                        },
+                        onComplete = {
+                            println("Consensus is ${consensus >= 0}")
+                            Runner.terminate()
+                        }
+                )
     }
 }
