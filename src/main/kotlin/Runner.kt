@@ -1,7 +1,7 @@
 import java.util.concurrent.atomic.AtomicBoolean
 
 object Runner {
-    val running = AtomicBoolean(true)
+   private val running = AtomicBoolean(true)
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -10,6 +10,8 @@ object Runner {
             Thread.sleep(300)
         }
     }
+
+    fun terminate() = running.compareAndSet(true, false)
 }
 
 private object Animation {
