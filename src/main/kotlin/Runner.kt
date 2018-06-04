@@ -9,7 +9,7 @@ object Runner {
 
         while (running.get()) {
             Animation.nextFrame()
-            Thread.sleep(300)
+            Thread.sleep(200)
         }
     }
 

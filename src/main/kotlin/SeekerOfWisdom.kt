@@ -12,7 +12,7 @@ object SeekerOfWisdom {
 
         var consensus = 0
 
-        Single.concat(questions)
+        Single.merge(questions)
                 .subscribeBy(
                         onNext = { answer ->
                             consensus += (if (answer) 1 else -1)
