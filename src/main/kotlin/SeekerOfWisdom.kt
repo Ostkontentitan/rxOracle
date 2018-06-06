@@ -27,6 +27,7 @@ object SeekerOfWisdom {
 
 
     fun next() {
+
         Oracle.stream()
                 .map { oracle ->
                     oracle.question()
@@ -36,9 +37,7 @@ object SeekerOfWisdom {
 
                 }
                 .flatMap(Single<Answer>::toObservable)
-                .map { answer ->
-                    answer.value
-                }
+                .map(Answer::value)
                 .reduce { consensus, answerValue ->
                     consensus + answerValue
                 }
