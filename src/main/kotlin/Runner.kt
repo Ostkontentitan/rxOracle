@@ -5,7 +5,7 @@ object Runner {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        SeekerOfWisdom.run()
+        SeekerOfWisdom.next()
 
         while (running.get()) {
             Animation.nextFrame()
