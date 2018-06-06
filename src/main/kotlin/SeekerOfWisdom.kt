@@ -16,10 +16,10 @@ object SeekerOfWisdom {
         Single.merge(questions)
                 .subscribeBy(
                         onNext = { answer ->
-                            consensus += (if (answer) 1 else -1)
+                            consensus += answer.value
                         },
                         onComplete = {
-                            println(" Consensus is ${consensus >= 0}")
+                            println(" Consensus is ${Answer.fromConsensus(consensus)}")
                             Runner.terminate()
                         }
                 )
@@ -35,15 +35,15 @@ object SeekerOfWisdom {
                             }
 
                 }
-                .flatMap(Single<Boolean>::toObservable)
+                .flatMap(Single<Answer>::toObservable)
                 .map { answer ->
-                    if (answer) 1 else -1
+                    answer.value
                 }
                 .reduce { consensus, answerValue ->
                     consensus + answerValue
                 }
                 .subscribeBy { consensus: Int ->
-                    println("Consensus is ${consensus >= 0}")
+                    println("Consensus is ${Answer.fromConsensus(consensus)}")
                     Runner.terminate()
                 }
     }
