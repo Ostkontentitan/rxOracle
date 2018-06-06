@@ -6,8 +6,8 @@ object SeekerOfWisdom {
         val questions = (0 until 5).map { index ->
             Oracle("$index").run {
                 question().doOnSuccess { answer ->
-                            println(" Oracle $name says $answer")
-                        }
+                    println(" Oracle $name says $answer")
+                }
             }
         }
 
@@ -28,7 +28,13 @@ object SeekerOfWisdom {
 
     fun next() {
         Oracle.stream()
-                .map(Oracle::question)
+                .map { oracle ->
+                    oracle.question()
+                            .doOnSuccess {
+                                println(" Oracle ${oracle.name} says $it")
+                            }
+
+                }
                 .flatMap(Single<Boolean>::toObservable)
                 .map { answer ->
                     if (answer) 1 else -1
@@ -36,7 +42,7 @@ object SeekerOfWisdom {
                 .reduce { consensus, answerValue ->
                     consensus + answerValue
                 }
-                .subscribeBy{consensus: Int ->
+                .subscribeBy { consensus: Int ->
                     println("Consensus is ${consensus >= 0}")
                     Runner.terminate()
                 }
