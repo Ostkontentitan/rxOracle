@@ -1,17 +1,21 @@
 import java.util.concurrent.atomic.AtomicBoolean
 
 object Runner {
-   private val running = AtomicBoolean(true)
+    private val running = AtomicBoolean(true)
 
     @JvmStatic
     fun main(args: Array<String>) {
+        SeekerOfWisdom.run()
+
         while (running.get()) {
             Animation.nextFrame()
-            Thread.sleep(300)
+            Thread.sleep(200)
         }
     }
 
-    fun terminate() = running.compareAndSet(true, false)
+    fun terminate() {
+        running.compareAndSet(true, false)
+    }
 }
 
 private object Animation {
