@@ -1,6 +1,7 @@
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.Single.just
+import io.reactivex.rxkotlin.zipWith
 import java.util.Random
 import java.util.concurrent.TimeUnit
 
@@ -15,6 +16,6 @@ class Oracle(val name: String) {
 
         private fun randomAnswer() = random.nextInt(2).let { Answer.values()[it] }
 
-        fun stream(): Observable<Oracle> = Observable.range(1,5).map { Oracle("Steve $it") }
+        fun stream(gong: Observable<Unit>): Observable<Oracle> = Observable.range(1, 5).zipWith(gong).map { Oracle("Steve ${it.first}") }
     }
 }

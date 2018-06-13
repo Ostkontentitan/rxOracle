@@ -1,11 +1,17 @@
-
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.subjects.PublishSubject
 import kotlin.math.sign
 
 object SeekerOfWisdom {
+
+    private val Gong = PublishSubject.create<Unit>()
+
     fun run() {
-        Oracle.stream()
-            .concatMapSingle { it.ask() } // this part changed to concat for 4b
+        Oracle.stream(Gong)
+            .concatMapSingle { it.ask() }
+            .doOnNext {
+                Gong.onNext(Unit)
+            }
             .map {
                 when (it) {
                     Answer.YES -> 1
@@ -33,5 +39,7 @@ object SeekerOfWisdom {
                     Runner.terminate()
                 }
             )
+
+        Gong.onNext(Unit)
     }
 }
