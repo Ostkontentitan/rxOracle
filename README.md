@@ -36,13 +36,16 @@ You are a wanderer on their path to wisdom. On your journey you encounter a temp
 <details>
   <summary>Challenge 2</summary>
   how to get name and answer together? .map() and .flatMap() can save the day. 
-  
+  <br><br>
   Also again .just() turns out to be useful to get the oracle into the stream. 
 </details>
 
 <details>
   <summary>Challenge 3</summary>
-  whatever
+  Using Observable.range(..., ...) a stream with any number of oracles can easily be created. 
+  <br><br>
+  The consuming side just has to swap its flatmap signature to .flatMapSingle() in order to work. 
+  (might be different on your solution)
 </details>
 
 <details>
