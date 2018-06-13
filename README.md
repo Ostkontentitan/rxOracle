@@ -19,7 +19,7 @@ You are a wanderer on their path to wisdom. On your journey you encounter a temp
     
 5. A new process is beeing introduced to ensure the oracles aren't influencing each other. 
   
-    a) the oracles arrive one by one and only after the previous one answered. 
+    a) oracles only enter the hall to  when a gong is rung. The gong is rung once the questioning starts and then once more when an answer has been given. 
     
     b) 2 interogators that swap every to 2seconds do the questioning. 
      - one is cheating and passes on the opposite answer of the orracle
