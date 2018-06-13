@@ -70,6 +70,8 @@ You are a wanderer on their path to wisdom. On your journey you encounter a temp
 </details>
 
 <details>
-  <summary>Challenge 5</summary>
-  whatever
+  <summary>Challenge 5a</summary>
+  The gong can be realized via a Publish subject that is passed into the stream() as an obseravble. 
+  <br><br>
+  zipWith(..., ...) is one possiblity line up oracles with the gong strikes. 
 </details>
