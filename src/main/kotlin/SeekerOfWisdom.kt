@@ -1,6 +1,6 @@
 object SeekerOfWisdom {
     fun run() {
-        TODO("Solve me...")
+        TODO("Challenge 2")
         Runner.terminate()
     }
 }

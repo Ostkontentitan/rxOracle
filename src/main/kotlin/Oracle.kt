@@ -1,8 +1,8 @@
-import java.util.*
+import java.util.Random
 
 class Oracle(val name: String) {
 
-    fun ask(): Unit = TODO("Challenge 0")
+    fun ask(): Unit = TODO("Challenge 1")
 
     companion object {
         private val random = Random()
@@ -11,6 +11,6 @@ class Oracle(val name: String) {
 
         private fun randomAnswer() = random.nextInt(2).let { Answer.values()[it] }
 
-        fun stream(): Unit = TODO("Challenge 4a")
+        fun stream(): Unit = TODO("Challenge 5a")
     }
 }
