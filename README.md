@@ -17,13 +17,7 @@ You are a wanderer on their path to wisdom. On your journey you encounter a temp
     
     b) ask them in sequence.
     
-5. You find a stream of oracles, each arriving at a random time after the previous. 
-    
-    a) model this
-    
-    b) ask all of them, and print their consensus.
-    
-    c) do it stateless, meaning there must be no variable outside the stream.
+5. To avoid influences of another oracles answer they are comming in one by one to give their answers
     
 ## Notes
 
@@ -70,16 +64,6 @@ You are a wanderer on their path to wisdom. On your journey you encounter a temp
 </details>
 
 <details>
-  <summary>Challenge 5a</summary>
-  whatever
-</details>
-
-<details>
-  <summary>Challenge 5b</summary>
-  whatever
-</details>
-
-<details>
-  <summary>Challenge 5c</summary>
+  <summary>Challenge 5</summary>
   whatever
 </details>
