@@ -1,11 +1,12 @@
 import io.reactivex.Observable
 import io.reactivex.Single
+import io.reactivex.Single.just
 import java.util.Random
 import java.util.concurrent.TimeUnit
 
 class Oracle(val name: String) {
 
-    fun ask(): Single<Answer> = Single.just(randomAnswer()).delay(delay(), TimeUnit.SECONDS)
+    fun ask(): Single<Answer> = just(randomAnswer()).delay(delay(), TimeUnit.SECONDS)
 
     companion object {
         private val random = Random()
