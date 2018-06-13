@@ -1,3 +1,4 @@
+import io.reactivex.Observable
 import java.util.Random
 
 class Oracle(val name: String) {
@@ -11,6 +12,6 @@ class Oracle(val name: String) {
 
         private fun randomAnswer() = random.nextInt(2).let { Answer.values()[it] }
 
-        fun stream(): Unit = TODO("Challenge 5a")
+        fun stream(): Observable<Oracle> = TODO("Challenge 3")
     }
 }
