@@ -19,6 +19,12 @@ You are a wanderer on their path to wisdom. On your journey you encounter a temp
     a - Model this
     b - Ask all of them, and print their consensus.
     c - Do it stateless, meaning there must be no variable outside the stream.
+    
+## Notes
+
+- try not to break the chain unless you don't know better. See hints to improve your solution
+
+- best print results with a linebreak to not collide with the animation println("\n$it")
 
 ## Hints
 
