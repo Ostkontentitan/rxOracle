@@ -25,7 +25,9 @@ You are a wanderer on their path to wisdom. On your journey you encounter a temp
 
 <details>
   <summary>Task 2</summary>
-  whatever
+  how to get name and answer together? .map() and .flatMap() can save the day. 
+  
+  Also again .just() turns out to be useful to get the oracle into the stream. 
 </details>
 
 <details>
