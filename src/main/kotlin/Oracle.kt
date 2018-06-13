@@ -15,6 +15,6 @@ class Oracle(val name: String) {
 
         private fun randomAnswer() = random.nextInt(2).let { Answer.values()[it] }
 
-        fun stream(): Observable<Oracle> = TODO("Challenge 3")
+        fun stream(): Observable<Oracle> = Observable.range(1,5).map { Oracle("Steve $it") }
     }
 }

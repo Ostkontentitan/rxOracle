@@ -1,13 +1,14 @@
-import io.reactivex.Single.just
 import io.reactivex.rxkotlin.subscribeBy
 
 object SeekerOfWisdom {
     fun run() {
-        just(Oracle("Steve"))
-            .flatMap { oracle -> oracle.ask().map { answer -> oracle.name to answer } }
+        Oracle.stream()
+            .flatMapSingle { oracle -> oracle.ask().map { answer -> oracle.name to answer } }
             .map { (name, answer) -> "$name says $answer" }.subscribeBy(
-                onSuccess = {
+                onNext = {
                     println("\n$it")
+                },
+                onComplete = {
                     Runner.terminate()
                 },
                 onError = {
